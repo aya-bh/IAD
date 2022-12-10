@@ -15,6 +15,8 @@ public class ParfumSeller extends Agent {
         data.put("DIAMOND", 460.0);
         data.put("ALEX", 540.0);
         data.put("LAROSA", 250.0);
+        data.put("NIVEA", 800.0);
+        data.put("SOUPLESSE", 500.0);
 
         System.out.println("....... Vendeur "+this.getAID().getName());
         System.out.println("--------------");

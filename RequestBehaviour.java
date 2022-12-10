@@ -20,7 +20,7 @@ public class RequestBehaviour  extends CyclicBehaviour{
     private double prix;
     private int compteur;
     private List<AID> vendeurs=new ArrayList();
-    private AID aid = new AID("vendeur1", AID.ISLOCALNAME);;
+    private AID aid = new AID("vendeur1", AID.ISLOCALNAME);
     private double meilleurPrix;
     private int index;
     public RequestBehaviour(Agent agent,String parfum,AID requester,String conversationID) {
@@ -28,11 +28,11 @@ public class RequestBehaviour  extends CyclicBehaviour{
         this.parfum=parfum;
         this.requester=requester;
         this.conversationID=conversationID;
-        System.out.println("Recherche des services...");
-        System.out.println("agent..."+agent);
+        //System.out.println("Recherche des services...");
+        //System.out.println("agent...");
 
-        vendeurs=chercherServices(myAgent," parfum-selling");
-        System.out.println("Liste des vendeurs trouvés :");
+        //vendeurs=chercherServices(myAgent," parfum-selling");
+        //System.out.println("Liste des vendeurs trouvés :");
 
         try {
 
@@ -57,7 +57,7 @@ public class RequestBehaviour  extends CyclicBehaviour{
             } */
             System.out.println("....... En cours");
             Thread.sleep(5000);
-            index=0;
+            //index=0;
             myAgent.send(msg);
         }
         catch (Exception e) {

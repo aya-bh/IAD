@@ -1,9 +1,18 @@
 package mini_projet_iad;
 
+import jade.core.AID;
 import jade.core.Agent;
 import jade.core.behaviours.CyclicBehaviour;
+import jade.domain.DFService;
+import jade.domain.FIPAAgentManagement.DFAgentDescription;
+import jade.domain.FIPAAgentManagement.ServiceDescription;
+import jade.domain.FIPAException;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class SellerBehaviour extends CyclicBehaviour{
     private String conversationID;
     public SellerBehaviour(Agent agent,String conversationID) {
@@ -34,5 +43,6 @@ public class SellerBehaviour extends CyclicBehaviour{
             e.printStackTrace();
         }
     }
+
 }
 

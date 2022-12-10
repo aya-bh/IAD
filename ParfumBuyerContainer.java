@@ -17,7 +17,8 @@ public class ParfumBuyerContainer {
             ProfileImpl profileImpl=new ProfileImpl(false);
             profileImpl.setParameter(ProfileImpl.MAIN_HOST,"localhost");
             AgentContainer agentContainer=runtime.createAgentContainer(profileImpl);
-            AgentController agentController=agentContainer.createNewAgent(name, "mini_projet_iad.ParfumBuyer", new Object[]{});
+            AgentController agentController=
+                    agentContainer.createNewAgent(name, "mini_projet_iad.ParfumBuyer", new Object[]{});
             agentController.start();
         } catch (Exception e) {
             e.printStackTrace();
