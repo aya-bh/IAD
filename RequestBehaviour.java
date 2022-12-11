@@ -72,6 +72,7 @@ public class RequestBehaviour  extends CyclicBehaviour{
                             MessageTemplate.or( MessageTemplate.MatchPerformative(ACLMessage.PROPOSE),
                                     MessageTemplate.MatchPerformative(ACLMessage.CONFIRM)));
             ACLMessage aclMessage=myAgent.receive(template);
+            Boolean bool =false;
             if(aclMessage!=null){
                 switch(aclMessage.getPerformative()){
                     case ACLMessage.PROPOSE :
@@ -84,12 +85,22 @@ public class RequestBehaviour  extends CyclicBehaviour{
                         meilleurPrix=prix;
                         System.out.println("-----------------------------------");
                         System.out.println("Conclusion de la transaction.......");
-                        ACLMessage aclMessage2=new ACLMessage(ACLMessage.ACCEPT_PROPOSAL);
-                        aclMessage2.addReceiver(aid);
-                        aclMessage2.setConversationId(conversationID);
-                        System.out.println("...... En cours");
-                        Thread.sleep(5000);
-                        myAgent.send(aclMessage2);
+                        if (prix<300.0){
+                            ACLMessage aclMessage2=new ACLMessage(ACLMessage.ACCEPT_PROPOSAL);
+                            aclMessage2.addReceiver(aid);
+                            aclMessage2.setConversationId(conversationID);
+                            System.out.println("...... En cours");
+                            Thread.sleep(5000);
+                            myAgent.send(aclMessage2);
+                        } else {
+                            ACLMessage aclMessage2=new ACLMessage(ACLMessage.REJECT_PROPOSAL);
+                            aclMessage2.addReceiver(aid);
+                            aclMessage2.setConversationId(conversationID);
+                            System.out.println("...... En cours");
+                            Thread.sleep(5000);
+                            myAgent.send(aclMessage2);
+                        }
+
                         break;
                     case ACLMessage.CONFIRM:
                         System.out.println(".........................");
